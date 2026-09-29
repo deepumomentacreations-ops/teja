@@ -1,0 +1,6 @@
+{
+  "name": "TravelMate AI - Global AI Travel Guide & Trip Planner",
+  "description": "Premium multi-agent AI travel planning platform for customized itineraries, budget optimization, flight tracking, hotels, food guides, and interactive maps across India and the world.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

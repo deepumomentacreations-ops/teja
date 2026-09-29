@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-sage: #A4C3B2;
+    --color-linen: #DED6D1;
+    --color-pistachio: #E9EDCA;
+    --color-cream: #FAEDCD;
+    --color-olive: #CDD5AE;
+    --color-forest: #283618;
+    --color-deep-sage: #384F40;
+    --color-dark-text: #1E2922;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F8F6F0;
+    color: #1E2922;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(233, 237, 202, 0.45) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(250, 237, 205, 0.5) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(164, 195, 178, 0.35) 0px, transparent 60%),
+      radial-gradient(at 100% 100%, rgba(205, 213, 174, 0.4) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, .font-serif-accent {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Refined Utilities for the 5-Color Palette */
+.bg-palette-sage { background-color: #A4C3B2; }
+.bg-palette-linen { background-color: #DED6D1; }
+.bg-palette-pistachio { background-color: #E9EDCA; }
+.bg-palette-cream { background-color: #FAEDCD; }
+.bg-palette-olive { background-color: #CDD5AE; }
+.bg-palette-forest { background-color: #283618; }
+.bg-palette-deep-sage { background-color: #384F40; }
+
+.text-palette-sage { color: #A4C3B2; }
+.text-palette-linen { color: #DED6D1; }
+.text-palette-pistachio { color: #E9EDCA; }
+.text-palette-cream { color: #FAEDCD; }
+.text-palette-olive { color: #CDD5AE; }
+.text-palette-forest { color: #283618; }
+.text-palette-deep-sage { color: #384F40; }
+
+.border-palette-sage { border-color: #A4C3B2; }
+.border-palette-linen { border-color: #DED6D1; }
+.border-palette-pistachio { border-color: #E9EDCA; }
+.border-palette-cream { border-color: #FAEDCD; }
+.border-palette-olive { border-color: #CDD5AE; }
+
+/* Rich Harmonious Colored Gradients */
+.bg-gradient-palette-hero {
+  background: linear-gradient(135deg, #FAEDCD 0%, #E9EDCA 45%, #CDD5AE 80%, #A4C3B2 100%);
+}
+
+.bg-gradient-palette-banner {
+  background: linear-gradient(135deg, #384F40 0%, #283618 60%, #1E2922 100%);
+}
+
+.bg-gradient-palette-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAEDCD 100%);
+}
+
+.bg-gradient-palette-btn {
+  background: linear-gradient(135deg, #384F40 0%, #283618 100%);
+}
+
+.bg-gradient-palette-accent {
+  background: linear-gradient(135deg, #A4C3B2 0%, #CDD5AE 50%, #E9EDCA 100%);
+}
+
+.bg-gradient-palette-warm {
+  background: linear-gradient(135deg, #FAEDCD 0%, #E9EDCA 100%);
+}
+
+.bg-gradient-palette-fresh {
+  background: linear-gradient(135deg, #E9EDCA 0%, #A4C3B2 100%);
+}
+
+/* Premium Card & Elevation */
+.luxe-card {
+  background: #FFFFFF;
+  border: 1.5px solid #DED6D1;
+  box-shadow: 0 4px 20px -4px rgba(40, 54, 24, 0.07), 0 2px 6px -2px rgba(40, 54, 24, 0.04);
+}
+
+.luxe-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxe-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -6px rgba(40, 54, 24, 0.12), 0 4px 12px -2px rgba(40, 54, 24, 0.08);
+  border-color: #A4C3B2;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAEDCD;
+}
+::-webkit-scrollbar-thumb {
+  background: #CDD5AE;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A4C3B2;
+}
