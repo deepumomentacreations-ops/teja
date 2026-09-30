@@ -43,6 +43,7 @@ import {
   DetailedPlace,
   LocalTransportMode
 } from '../data/megaPlacesData';
+import { UN193CountryExplorer } from './UN193CountryExplorer';
 import { CurrencyCode } from '../types/travel';
 
 interface ExploreDestinationsPageProps {
@@ -209,8 +210,8 @@ export const ExploreDestinationsPage: React.FC<ExploreDestinationsPageProps> = (
                 : 'bg-[#FAEDCD]/60 text-[#1E2922] hover:bg-[#FAEDCD] border border-[#CDD5AE]'
             }`}
           >
-            <Globe className="w-4 h-4" />
-            Country Guides ({GLOBAL_COUNTRIES.length})
+            <Globe className="w-4 h-4 text-[#384F40]" />
+            193 UN Countries Intelligence (Vietnam, Japan, France, etc.)
           </button>
 
           <button
@@ -629,97 +630,12 @@ export const ExploreDestinationsPage: React.FC<ExploreDestinationsPageProps> = (
         </div>
       )}
 
-      {/* 4. COUNTRIES TAB */}
+      {/* 4. 193 UN COUNTRIES INTELLIGENCE TAB */}
       {activeTab === 'countries' && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCountries.map((c) => (
-              <div
-                key={c.country}
-                className="bg-white rounded-3xl overflow-hidden shadow-xs border border-[#DED6D1] flex flex-col justify-between group hover:shadow-md hover:border-[#A4C3B2] transition-all"
-              >
-                <div>
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={c.highlightImage}
-                      alt={c.country}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <span className="absolute top-3 left-3 px-3 py-1 rounded-xl bg-white/95 text-[#1E2922] text-xs font-bold flex items-center gap-1.5 shadow-sm">
-                      <span className="text-base">{c.flag}</span>
-                      <span>{c.country}</span>
-                    </span>
-
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/60 text-white text-[11px] font-bold backdrop-blur-xs">
-                      {c.region}
-                    </span>
-                  </div>
-
-                  <div className="p-5 space-y-3.5">
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-stone-900 font-serif-accent">
-                          {c.country}
-                        </h3>
-                        <span className="text-xs text-stone-500 font-medium">Cap: {c.capital}</span>
-                      </div>
-                      <p className="text-xs text-stone-600 mt-1 line-clamp-2 leading-relaxed">
-                        {c.description}
-                      </p>
-                    </div>
-
-                    {/* Popular Destinations */}
-                    <div className="space-y-1.5">
-                      <span className="text-[10px] uppercase font-bold text-stone-400 tracking-wider">Top Destinations</span>
-                      <div className="flex flex-wrap gap-1">
-                        {c.popularDestinations.slice(0, 4).map((d) => (
-                          <button
-                            key={d}
-                            onClick={() => onSelectDestination(d.split('(')[0].trim())}
-                            className="text-[10px] bg-[#FAF8F5] hover:bg-[#384F40] hover:text-[#FAEDCD] px-2 py-0.5 rounded-md font-medium text-stone-700 transition-colors border border-[#DED6D1]"
-                          >
-                            {d}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Visa Summary */}
-                    <div className="bg-[#FAF8F5] p-2.5 rounded-xl border border-[#DED6D1] text-[11px] text-stone-700 flex items-start gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
-                      <span className="line-clamp-2">{c.visaInfo}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-[#FAF8F5] border-t border-[#DED6D1] flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-bold">Est. Daily Budget</span>
-                    <p className="text-sm font-bold text-stone-900">
-                      ~{rateSymbol}{Math.round(c.avgDailyBudgetINR / currentRate).toLocaleString()}<span className="text-xs text-stone-400 font-normal">/day</span>
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setSelectedCountryModal(c)}
-                      className="px-3 py-1.5 bg-white hover:bg-stone-100 text-stone-700 rounded-xl text-xs font-bold border border-[#DED6D1] transition-all"
-                    >
-                      Guide
-                    </button>
-                    <button
-                      onClick={() => onSelectDestination(c.popularDestinations[0].split('(')[0].trim())}
-                      className="px-3.5 py-1.5 bg-[#384F40] hover:bg-[#283618] text-[#FAEDCD] rounded-xl text-xs font-bold flex items-center gap-1 transition-all shadow-xs border border-[#CDD5AE]/40"
-                    >
-                      <Sparkles className="w-3 h-3 text-[#A4C3B2]" />
-                      Plan Trip
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <UN193CountryExplorer
+          onPlanDestination={onSelectDestination}
+          currency={currency}
+        />
       )}
 
       {/* 5. HOSTELS & STAYS DIRECTORY TAB */}
